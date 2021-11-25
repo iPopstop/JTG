@@ -1,0 +1,20 @@
+{
+  "name": "jira-tg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.py",
+  "scripts": {
+    "serve": "uvicorn main:app --reload",
+    "startl": "docker-compose -f docker-compose-main.yml up -d",
+    "start": "docker-compose up -d",
+    "stopl": "docker-compose -f docker-compose-main.yml down",
+    "stop": "docker-compose down",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.popstop.space:iPopstop/jira-tg.git"
+  },
+  "author": "Viacheslav Kutov",
+  "license": "ISC"
+}

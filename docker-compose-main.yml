@@ -1,0 +1,11 @@
+version: '3'
+services:
+  main.bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.fastapi.rule=Host(`jtg.popstop.space`)
+      - traefik.http.routers.fastapi.tls=true
+      - traefik.http.routers.fastapi.tls.certresolver=letsencrypt
