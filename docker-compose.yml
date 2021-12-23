@@ -1,22 +1,11 @@
 version: '3'
-networks:
-  proxy:
-    external: true
 services:
   main.bot:
     build:
       context: .
       dockerfile: Dockerfile
     labels:
-    - "traefik.enable=true"
-    # Zabbix URL (replace with yours)
-    - traefik.http.routers.fastapi.rule=Host(`jtg.popstop.space`)
-    - traefik.http.routers.fastapi.entrypoints=websecure
-    - traefik.http.routers.fastapi.tls.certresolver=letsencrypt
-    - traefik.http.services.fastapi.loadbalancer.server.port=8000
-    - traefik.http.services.fastapi.loadbalancer.passhostheader=true
-    - traefik.http.routers.fastapi.middlewares=compresstraefik
-    - traefik.http.middlewares.compresstraefik.compress=true
-    - traefik.docker.network=proxy
-    networks:
-      - proxy
+      - traefik.enable=true
+      - traefik.http.routers.fastapi.rule=Host(``)
+      - traefik.http.routers.fastapi.tls=true
+      - traefik.http.routers.fastapi.tls.certresolver=letsencrypt
